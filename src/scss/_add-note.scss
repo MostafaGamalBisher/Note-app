@@ -1,0 +1,45 @@
+.content-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background: var(--color-background);
+  gap: var(--space-xxl);
+  padding: 10.14rem 20.3rem;
+  flex: 1;
+
+  #note-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--space-xxl);
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      gap: var(--space-xxs);
+
+      label {
+        color: var(--color-text-secondary);
+        font-size: var(--font-xxs);
+        font-weight: var(--weight-regular);
+      }
+
+      input {
+        border: none;
+        background: var(--color-secondary);
+        outline: none;
+        border-radius: 0.3rem;
+      }
+      textarea {
+        border: none;
+        background: var(--color-secondary);
+        outline: none;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+}

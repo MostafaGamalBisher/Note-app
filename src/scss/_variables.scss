@@ -1,0 +1,48 @@
+:root {
+  // Colors
+  --color-primary: rgba(236, 113, 96, 1);
+  --color-secondary: rgba(246, 246, 246, 1);
+  --color-background: rgba(255, 255, 255, 1);
+  --color-text: rgba(48, 48, 48, 1);
+  --color-text-secondary: rgba(137, 137, 137, 1);
+  --color-error: #ef4444;
+  --color-success: #22c55e;
+
+  // Typography
+  --font-family-base: 'inter', sans-serif;
+  --font-family-secondary: 'Aclonica', sans-serif;
+
+  // Font Sizes
+  --font-s: 1rem;
+  --font-xs: 1.2rem; // Captions
+  --font-xxs: 1.3rem;
+  --font-sm: 1.4rem; // Secondary text
+  --font-base: 1.6rem; // Main body text (Standard)
+  --font-base-x: 1.7rem;
+  --font-md: 2rem; // H3 / Small Headers
+  --font-lg: 2.5rem; // H2
+  --font-xl: 3.2rem; // H1
+
+  // Font Weights
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500; // Good for button text
+  --weight-bold: 600;
+  --weight-bolder: 700; // Good for titles
+
+  // Spacing
+  --space-xs: 0.4rem; // 4px
+  --space-xxs: 0.6rem;
+  --space-sm: 0.8rem; // 8px
+  --space-ssm: 1.2rem;
+  --space-md: 1.6rem; // 16px
+  --space-lg: 2.4rem; // 24px
+  --space-xl: 3.2rem; // 32px
+  --space-xxl: 3.6rem;
+}
+
+// Breakpoints — SCSS only, CSS vars cannot work inside @media
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
