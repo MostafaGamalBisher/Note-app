@@ -5,17 +5,17 @@
   align-items: stretch;
   background: var(--color-background);
   gap: var(--space-xxl);
-  padding: 10.14rem 20.3rem;
+  padding: var(--space-extra) var(--space-massive);
   flex: 1;
 
-  #note-form {
+  .note-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
     gap: var(--space-xxl);
 
-    .input-group {
+    .note-form__group {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -28,12 +28,7 @@
         font-weight: var(--weight-regular);
       }
 
-      input {
-        border: none;
-        background: var(--color-secondary);
-        outline: none;
-        border-radius: 0.3rem;
-      }
+      input,
       textarea {
         border: none;
         background: var(--color-secondary);

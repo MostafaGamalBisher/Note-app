@@ -9,16 +9,16 @@
   height: 100vh;
 
   &__header {
-    .logo {
+    .sidebar__logo {
       font-family: var(--font-family-secondary);
       color: var(--color-primary);
       font-size: var(--font-base-x);
       font-weight: var(--weight-regular);
-      padding: 20px 0;
+      padding: var(--space-xlg) 0;
     }
   }
 
-  .search-container {
+  .sidebar__search {
     display: flex;
     flex-direction: row;
     gap: var(--space-xxs);
