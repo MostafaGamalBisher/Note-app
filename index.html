@@ -13,70 +13,46 @@
     <title>Note-app</title>
   </head>
   <body>
-    <div class="app-container">
-      <aside class="sidebar">
-        <header class="sidebar__header">
-          <button
-            class="sidebar__burger"
-            type="button"
-            aria-label="Toggle menu"
-          ></button>
-          <div class="sidebar__logo">Almdrasa-Notes</div>
-        </header>
-        <div class="sidebar__search">
-          <img
-            src="./src/assets/img/icons/search-svg.svg"
-            alt="search-bar icon"
-          />
-          <input
-            class="sidebar__search-input"
-            type="search"
-            placeholder="Search"
-            id="side-search"
-          />
-        </div>
+    <div class="app" data-view="notes">
+      <!-- MOBILE HEADER -->
+      <header class="mobile-header">
+        <button
+          class="mobile-header__burger"
+          type="button"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="mobile-header__logo">Almdrasa-Notes</div>
+        <button
+          class="mobile-header__search-btn"
+          type="button"
+          aria-label="Open search"
+        >
+          <img src="./src/assets/img/icons/search-svg.svg" alt="" />
+        </button>
+      </header>
 
-        <nav class="nav-menu">
-          <ul class="nav-menu__elements">
-            <li class="nav-menu__element nav-menu__element--active">
-              <a href="#">Notes</a>
-            </li>
-            <li class="nav-menu__element">
-              <a href="#">Add Note</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <!-- SIDEBAR (always visible on desktop) -->
+      <aside class="sidebar"></aside>
 
-      <main class="content-area">
-        <h1>Add Note</h1>
+      <!-- NOTES PANEL (home view) -->
+      <div class="notes-panel"></div>
 
-        <form class="note-form" id="note-form">
-          <div class="note-form__group">
-            <label for="title">Title*</label>
-            <input type="text" id="title" required />
-          </div>
+      <!-- NOTE DETAIL (home view) -->
+      <main class="note-detail"></main>
 
-          <div class="note-form__group">
-            <label for="author">Author*</label>
-            <input type="text" id="author" required />
-          </div>
+      <!-- ADD NOTE (add-note view) -->
+      <div class="content-area"></div>
 
-          <div class="note-form__group">
-            <label for="note-text">Your Note*</label>
-            <textarea id="note-text" rows="8" required></textarea>
-          </div>
+      <!-- MOBILE OVERLAYS -->
+      <div class="menu-overlay"></div>
+      <div class="search-overlay"></div>
 
-          <div class="note-form__actions">
-            <button type="submit" class="note-form__btn--primary">
-              Add Note
-            </button>
-            <button type="button" class="note-form__btn--secondary">
-              Add pinned note
-            </button>
-          </div>
-        </form>
-      </main>
+      <!-- FAB (mobile) -->
+      <button class="fab" type="button" aria-label="Add note"></button>
     </div>
     <script type="module" src="/src/js/main.js"></script>
   </body>
