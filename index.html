@@ -36,20 +36,138 @@
       </header>
 
       <!-- SIDEBAR (always visible on desktop) -->
-      <aside class="sidebar"></aside>
+      <aside class="sidebar">
+        <div class="sidebar__logo">Almdrasa-Notes</div>
+
+        <div class="sidebar__search">
+          <img src="./src/assets/img/icons/search-svg.svg" alt="" />
+          <input
+            class="sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <nav class="nav-menu">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__item nav-menu__item--active">
+              <a href="#" class="nav-menu__link">Notes</a>
+            </li>
+            <li class="nav-menu__item">
+              <a href="#" class="nav-menu__link">Add Notes</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
       <!-- NOTES PANEL (home view) -->
-      <div class="notes-panel"></div>
+      <div class="notes-panel">
+        <div class="notes-panel__search">
+          <img src="./src/assets/img/icons/search-svg.svg" alt="" />
+          <input
+            class="notes-panel__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <div class="notes-panel__list">
+          <div class="notes-panel__section" id="pinned-section">
+            <p class="notes-panel__label notes-panel__label--pinned">Pinned</p>
+            <ul class="notes-panel__cards" id="pinned-cards">
+              <!-- JS renders pinned cards here -->
+            </ul>
+          </div>
+
+          <div class="notes-panel__section" id="notes-section">
+            <p class="notes-panel__label">Notes</p>
+            <ul class="notes-panel__cards" id="regular-cards">
+              <!-- JS renders regular cards here -->
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <!-- NOTE DETAIL (home view) -->
-      <main class="note-detail"></main>
+      <main class="note-detail" id="note-detail">
+        <div class="note-detail__empty" id="note-detail-empty">
+          <p>Select a note to read it</p>
+        </div>
+
+        <div class="note-detail__content" id="note-detail-content">
+          <h1 class="note-detail__title" id="note-detail-title"></h1>
+
+          <p class="note-detail__meta" id="note-detail-meta">
+            <span class="note-detail__date" id="note-detail-date"></span>
+            <span class="note-detail__separator"> / By </span>
+            <span class="note-detail__author" id="note-detail-author"></span>
+          </p>
+
+          <div class="note-detail__body" id="note-detail-body"></div>
+        </div>
+
+        <button class="note-detail__fab" type="button" aria-label="Add note">
+          +
+        </button>
+      </main>
 
       <!-- ADD NOTE (add-note view) -->
-      <div class="content-area"></div>
+      <div class="content-area">
+        <h1 class="content-area__title">Add Note</h1>
 
-      <!-- MOBILE OVERLAYS -->
-      <div class="menu-overlay"></div>
-      <div class="search-overlay"></div>
+        <form class="note-form" id="note-form">
+          <div class="note-form__group">
+            <label class="note-form__label" for="note-title">Title*</label>
+            <input
+              class="note-form__input"
+              type="text"
+              id="note-title"
+              placeholder="Enter note title"
+              required
+            />
+          </div>
+
+          <div class="note-form__group">
+            <label class="note-form__label" for="note-author">Author*</label>
+            <input
+              class="note-form__input"
+              type="text"
+              id="note-author"
+              placeholder="Enter author name"
+              required
+            />
+          </div>
+
+          <div class="note-form__group">
+            <label class="note-form__label" for="note-body">Your Note*</label>
+            <textarea
+              class="note-form__textarea"
+              id="note-body"
+              rows="8"
+              placeholder="Write your note here"
+              required
+            ></textarea>
+          </div>
+
+          <div class="note-form__actions">
+            <button
+              type="submit"
+              class="note-form__btn note-form__btn--primary"
+            >
+              Add Note
+            </button>
+            <button
+              type="button"
+              class="note-form__btn note-form__btn--secondary"
+              id="btn-add-pinned"
+            >
+              Add pinned note
+            </button>
+          </div>
+        </form>
+      </div>
 
       <!-- FAB (mobile) -->
       <button class="fab" type="button" aria-label="Add note"></button>
