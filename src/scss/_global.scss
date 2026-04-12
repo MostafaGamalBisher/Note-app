@@ -21,18 +21,62 @@ a {
 
   &:hover {
     opacity: 0.8;
+    transition: var(--transition-base);
   }
 }
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
   font: inherit;
   color: inherit;
 }
 
-.app-container {
-  margin: 0 auto;
+// ── App Root ─────────────────────────────────────────────────
+.app {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  min-height: 100vh;
+}
+
+// ── Mobile header hidden on desktop ──────────────────────────
+.mobile-header {
+  display: none;
+}
+
+// ── Overlays hidden by default ────────────────────────────────
+.menu-overlay,
+.search-overlay {
+  display: none;
+}
+
+// ── FAB hidden on desktop ─────────────────────────────────────
+.fab {
+  display: none;
+}
+
+// ── View switching ────────────────────────────────────────────
+// notes view: sidebar + notes-panel + note-detail visible
+// add-note view: sidebar + content-area visible
+
+.app[data-view='notes'] {
+  .notes-panel,
+  .note-detail {
+    display: flex;
+  }
+
+  .content-area {
+    display: none;
+  }
+}
+
+.app[data-view='add-note'] {
+  .content-area {
+    display: flex;
+  }
+
+  .notes-panel,
+  .note-detail {
+    display: none;
+  }
 }

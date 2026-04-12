@@ -1,0 +1,57 @@
+.notes-panel {
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+  min-width: 28rem;
+  height: 100vh;
+  background: var(--color-background);
+  border-right: 0.1rem solid var(--color-border);
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  padding: var(--space-24) var(--space-12);
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-16) 0;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: var(--radius-8);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: var(--font-12);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-8) var(--space-16);
+
+    &--pinned {
+      color: var(--color-primary);
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+  }
+}

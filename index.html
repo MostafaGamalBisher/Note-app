@@ -14,7 +14,6 @@
   </head>
   <body>
     <div class="app" data-view="notes">
-      <!-- MOBILE HEADER -->
       <header class="mobile-header">
         <button
           class="mobile-header__burger"
@@ -35,7 +34,6 @@
         </button>
       </header>
 
-      <!-- SIDEBAR (always visible on desktop) -->
       <aside class="sidebar">
         <div class="sidebar__logo">Almdrasa-Notes</div>
 
@@ -61,18 +59,7 @@
         </nav>
       </aside>
 
-      <!-- NOTES PANEL (home view) -->
       <div class="notes-panel">
-        <div class="notes-panel__search">
-          <img src="./src/assets/img/icons/search-svg.svg" alt="" />
-          <input
-            class="notes-panel__search-input"
-            type="search"
-            placeholder="Search"
-            aria-label="Search notes"
-          />
-        </div>
-
         <div class="notes-panel__list">
           <div class="notes-panel__section" id="pinned-section">
             <p class="notes-panel__label notes-panel__label--pinned">Pinned</p>
@@ -90,7 +77,6 @@
         </div>
       </div>
 
-      <!-- NOTE DETAIL (home view) -->
       <main class="note-detail" id="note-detail">
         <div class="note-detail__empty" id="note-detail-empty">
           <p>Select a note to read it</p>
@@ -109,11 +95,10 @@
         </div>
 
         <button class="note-detail__fab" type="button" aria-label="Add note">
-          +
+          <span>+</span>
         </button>
       </main>
 
-      <!-- ADD NOTE (add-note view) -->
       <div class="content-area">
         <h1 class="content-area__title">Add Note</h1>
 
@@ -169,8 +154,68 @@
         </form>
       </div>
 
-      <!-- FAB (mobile) -->
-      <button class="fab" type="button" aria-label="Add note"></button>
+      <div class="menu-overlay" id="menu-overlay">
+        <button
+          class="menu-overlay__close"
+          type="button"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        <nav class="nav-menu nav-menu--overlay">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__item nav-menu__item--active">
+              <a href="#" class="nav-menu__link">Notes</a>
+            </li>
+            <li class="nav-menu__item">
+              <a href="#" class="nav-menu__link">Add Notes</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay__header">
+          <button
+            class="search-overlay__burger"
+            type="button"
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="search-overlay__logo">Almdrasa-Notes</div>
+
+          <button
+            class="search-overlay__close"
+            type="button"
+            aria-label="Close search"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="search-overlay__search">
+          <img src="./src/assets/img/icons/search-svg.svg" alt="" />
+          <input
+            class="search-overlay__input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <ul class="search-overlay__results" id="search-results">
+          <!-- JS renders matching note cards here -->
+        </ul>
+      </div>
+
+      <button class="fab" type="button" aria-label="Add note">
+        <span>+</span>
+      </button>
     </div>
     <script type="module" src="/src/js/main.js"></script>
   </body>
