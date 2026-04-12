@@ -13,15 +13,15 @@
   --font-family-secondary: 'Aclonica', sans-serif;
 
   // Font Sizes
-  --font-s: 1rem;
-  --font-xs: 1.2rem; // Captions
-  --font-xxs: 1.3rem;
-  --font-sm: 1.4rem; // Secondary text
-  --font-base: 1.6rem; // Main body text (Standard)
-  --font-base-x: 1.7rem;
-  --font-md: 2rem; // H3 / Small Headers
-  --font-lg: 2.5rem; // H2
-  --font-xl: 3.2rem; // H1
+  --font-10: 1rem;
+  --font-12: 1.2rem; // Captions
+  --font-13: 1.3rem; // Supporting text
+  --font-14: 1.4rem; // Secondary text
+  --font-16: 1.6rem; // Main body
+  --font-17: 1.7rem; // Slightly above body
+  --font-20: 2rem; // H3 / Small headers
+  --font-25: 2.5rem; // H2
+  --font-32: 3.2rem; // H1
 
   // Font Weights
   --weight-light: 300;
@@ -31,17 +31,19 @@
   --weight-bolder: 700; // Good for titles
 
   // Spacing
-  --space-xs: 0.4rem; // 4px
-  --space-xxs: 0.6rem;
-  --space-sm: 0.8rem; // 8px
-  --space-ssm: 1.2rem;
-  --space-md: 1.6rem; // 16px
-  --space-xlg: 2rem;
-  --space-lg: 2.4rem; // 24px
-  --space-xl: 3.2rem; // 32px
-  --space-xxl: 3.6rem;
-  --space-extra: 10.14rem;
-  --space-massive: 20.3rem;
+  --space-3: 0.3rem;
+  --space-4: 0.4rem; // 4px
+  --space-6: 0.6rem; // 6px
+  --space-7: 0.7rem;
+  --space-8: 0.8rem; // 8px
+  --space-12: 1.2rem; // 12px
+  --space-16: 1.6rem; // 16px
+  --space-20: 2rem; // 20px
+  --space-24: 2.4rem; // 24px
+  --space-32: 3.2rem; // 32px
+  --space-36: 3.6rem; // 36px
+  --space-114: 11.4rem;
+  --space-203: 20.3rem;
 }
 
 // Breakpoints — SCSS only, CSS vars cannot work inside @media

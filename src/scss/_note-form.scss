@@ -1,0 +1,39 @@
+.content-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background: var(--color-background);
+  gap: var(--space-36);
+  padding: var(--space-114) var(--space-203);
+  flex: 1;
+}
+.note-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-36);
+
+  .note-form__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--space-6);
+
+    label {
+      color: var(--color-text-secondary);
+      font-size: var(--font-13);
+      font-weight: var(--weight-regular);
+    }
+
+    input,
+    textarea {
+      border: none;
+      background: var(--color-secondary);
+      outline: none;
+      border-radius: var(--space-7);
+    }
+  }
+}

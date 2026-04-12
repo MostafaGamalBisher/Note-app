@@ -1,6 +1,12 @@
 @use 'variables';
 @use 'reset';
 @use 'global';
-@use 'aside';
-@use 'add-note';
+@use 'sidebar';
+@use 'notes-panel';
+@use 'note-card';
+@use 'note-detail';
+@use 'note-form';
+@use 'mobile-header';
+@use 'overlays';
+@use 'fab';
 @use 'responsive';
