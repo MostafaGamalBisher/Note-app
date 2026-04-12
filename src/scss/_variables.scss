@@ -10,6 +10,7 @@
   --color-overlay: rgba(0, 0, 0, 0.3);
   --color-error: #ef4444;
   --color-success: #22c55e;
+  --color-gray: rgba(231, 231, 233, 1);
 
   // ── Typography ──────────────────────────
   --font-family-base: 'Inter', sans-serif;
@@ -17,14 +18,14 @@
 
   // ── Font Sizes ──────────────────────────
   --font-10: 1rem;
-  --font-12: 1.2rem; // Captions
-  --font-13: 1.3rem; // Supporting text
-  --font-14: 1.4rem; // Secondary text
-  --font-16: 1.6rem; // Main body
-  --font-17: 1.7rem; // Slightly above body
-  --font-20: 2rem; // H3 / Small headers
-  --font-25: 2.5rem; // H2
-  --font-32: 3.2rem; // H1
+  --font-12: 1.2rem;
+  --font-13: 1.3rem;
+  --font-14: 1.4rem;
+  --font-16: 1.6rem;
+  --font-17: 1.7rem;
+  --font-20: 2rem;
+  --font-25: 2.5rem;
+  --font-32: 3.2rem;
 
   // ── Font Weights ────────────────────────
   --weight-light: 300;
@@ -39,10 +40,12 @@
   --space-6: 0.6rem;
   --space-7: 0.7rem;
   --space-8: 0.8rem;
+  --space-10: 1rem;
   --space-12: 1.2rem;
   --space-16: 1.6rem;
   --space-20: 2rem;
   --space-24: 2.4rem;
+  --space-28: 2.8rem;
   --space-32: 3.2rem;
   --space-36: 3.6rem;
 

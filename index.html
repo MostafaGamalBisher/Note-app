@@ -60,6 +60,13 @@
       </aside>
 
       <div class="notes-panel">
+        <button
+          class="notes-panel__collapse"
+          type="button"
+          aria-label="Collapse panel"
+        >
+          <span>‹</span>
+        </button>
         <div class="notes-panel__list">
           <div class="notes-panel__section" id="pinned-section">
             <p class="notes-panel__label notes-panel__label--pinned">Pinned</p>
@@ -71,7 +78,14 @@
           <div class="notes-panel__section" id="notes-section">
             <p class="notes-panel__label">Notes</p>
             <ul class="notes-panel__cards" id="regular-cards">
-              <!-- JS renders regular cards here -->
+              <li class="note-card">
+                <h3 class="note-card__title"></h3>
+                <p class="note-card__excerpt"></p>
+                <div class="note-card__bottom">
+                  <span class="note-card__date"></span>
+                  <button class="note-card__delete"></button>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

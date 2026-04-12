@@ -1,15 +1,15 @@
 .notes-panel {
   display: flex;
   flex-direction: column;
-  width: 28rem;
-  min-width: 28rem;
+  width: 32.2rem;
+  min-width: 32.2rem;
   height: 100vh;
   background: var(--color-background);
   border-right: 0.1rem solid var(--color-border);
   position: sticky;
   top: 0;
   overflow: hidden;
-  padding: var(--space-24) var(--space-12);
+  //   padding: var(--space-24) var(--space-12);
 
   &__list {
     display: flex;
@@ -38,20 +38,27 @@
   }
 
   &__label {
-    font-size: var(--font-12);
-    font-weight: var(--weight-bold);
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: var(--space-8) var(--space-16);
+    font-size: var(--font-13);
+    font-weight: var(--weight-regular);
+    color: var(--color-primary);
+    text-transform: capitalize;
+    padding: var(--space-10) var(--space-28);
+    border-top: 0.1rem solid var(--color-gray);
+    border-bottom: 0.1rem solid var(--color-gray);
 
     &--pinned {
-      color: var(--color-primary);
+      text-transform: uppercase;
+      padding: var(--space-28) var(--space-28) var(--space-16);
+      border: none;
     }
   }
 
   &__cards {
     display: flex;
     flex-direction: column;
+  }
+
+  &__collapse {
+    display: none;
   }
 }
