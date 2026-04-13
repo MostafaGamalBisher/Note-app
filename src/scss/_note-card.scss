@@ -40,5 +40,6 @@
   &__delete {
     color: var(--color-red);
     font-size: var(--font-13);
+    text-transform: capitalize;
   }
 }
