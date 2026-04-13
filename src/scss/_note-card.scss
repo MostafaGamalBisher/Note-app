@@ -15,6 +15,7 @@
   &__title {
     font-size: var(--font-16);
     color: var(--color-text);
+    text-transform: capitalize;
   }
 
   &__excerpt {
