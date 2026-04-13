@@ -8,8 +8,6 @@
   border-right: 0.1rem solid var(--color-border);
   position: sticky;
   top: 0;
-  // overflow: hidden;
-  position: relative;
 
   &__list {
     display: flex;
@@ -60,16 +58,19 @@
   }
 
   &__collapse {
-    content: '';
     position: absolute;
     width: var(--space-28);
     aspect-ratio: 1/1;
     border-radius: var(--radius-50);
     border: 0.1rem solid var(--color-gray);
     top: 12rem;
-    left: 30.7rem;
+    right: calc(-1 * var(--space-16));
     background: var(--color-background);
     color: var(--color-text-secondary);
     z-index: 100;
+  }
+
+  &--collapsed &__collapse span {
+    transform: rotate(180deg);
   }
 }
