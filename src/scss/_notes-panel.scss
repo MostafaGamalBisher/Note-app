@@ -8,8 +8,8 @@
   border-right: 0.1rem solid var(--color-border);
   position: sticky;
   top: 0;
-  overflow: hidden;
-  //   padding: var(--space-24) var(--space-12);
+  // overflow: hidden;
+  position: relative;
 
   &__list {
     display: flex;
@@ -48,7 +48,7 @@
 
     &--pinned {
       text-transform: uppercase;
-      padding: var(--space-28) var(--space-28) var(--space-16);
+      padding: var(--space-28) var(--space-28) 0;
       border: none;
     }
   }
@@ -56,9 +56,20 @@
   &__cards {
     display: flex;
     flex-direction: column;
+    padding: var(--space-10) var(--space-12);
   }
 
   &__collapse {
-    display: none;
+    content: '';
+    position: absolute;
+    width: var(--space-28);
+    aspect-ratio: 1/1;
+    border-radius: var(--radius-50);
+    border: 0.1rem solid var(--color-gray);
+    top: 12rem;
+    left: 30.7rem;
+    background: var(--color-background);
+    color: var(--color-text-secondary);
+    z-index: 100;
   }
 }
