@@ -2,9 +2,8 @@ $content-padding-v: 11.4rem;
 $content-padding-h: 20.3rem;
 
 .content-area {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: stretch;
   background: var(--color-background);
   gap: var(--space-36);
@@ -23,26 +22,25 @@ $content-padding-h: 20.3rem;
   justify-content: center;
   align-items: stretch;
   gap: var(--space-36);
+}
+.note-form__group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-6);
 
-  .note-form__group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: var(--space-6);
+  label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-13);
+    font-weight: var(--weight-regular);
+  }
 
-    label {
-      color: var(--color-text-secondary);
-      font-size: var(--font-13);
-      font-weight: var(--weight-regular);
-    }
-
-    input,
-    textarea {
-      border: none;
-      background: var(--color-secondary);
-      outline: none;
-      border-radius: var(--space-7);
-    }
+  input,
+  textarea {
+    border: none;
+    background: var(--color-secondary);
+    outline: none;
+    border-radius: var(--space-7);
   }
 }
