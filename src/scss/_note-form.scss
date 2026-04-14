@@ -8,8 +8,14 @@ $content-padding-h: 20.3rem;
   align-items: stretch;
   background: var(--color-background);
   gap: var(--space-36);
-  padding: var(--space-114) var(--space-203);
+  padding: $content-padding-v $content-padding-h;
   flex: 1;
+
+  &__title {
+    font-size: var(--font-25);
+    font-weight: var(--weight-regular);
+    color: var(--color-text);
+  }
 }
 .note-form {
   display: flex;
