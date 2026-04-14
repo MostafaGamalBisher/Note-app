@@ -1,5 +1,10 @@
 $content-padding-v: 11.4rem;
 $content-padding-h: 20.3rem;
+$input-height: 4.5rem;
+$textarea-height: 15rem;
+$note-form-gap: 4rem;
+$note-form-width: 50rem;
+$actions-btns-radius: 0.5rem;
 
 .content-area {
   flex-direction: column;
@@ -16,31 +21,59 @@ $content-padding-h: 20.3rem;
     color: var(--color-text);
   }
 }
+
 .note-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: var(--space-36);
-}
-.note-form__group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  gap: var(--space-6);
+  gap: $note-form-gap;
+  width: $note-form-width;
 
-  label {
+  &__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--space-6);
+  }
+
+  &__label {
     color: var(--color-text-secondary);
     font-size: var(--font-13);
     font-weight: var(--weight-regular);
   }
 
-  input,
-  textarea {
+  &__input {
+    padding: var(--space-12) var(--space-16);
+  }
+
+  &__textarea {
+    min-height: $textarea-height;
+  }
+
+  &__input,
+  &__textarea {
     border: none;
     background: var(--color-secondary);
     outline: none;
     border-radius: var(--space-7);
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-28);
+  }
+  &__btn {
+    background: var(--color-primary);
+    color: var(--color-card-active);
+    border-radius: $actions-btns-radius;
+
+    &--primary {
+      padding: var(--space-10) var(--space-20);
+    }
+    &--secondary {
+      padding: var(--space-10) var(--space-16);
+    }
   }
 }
