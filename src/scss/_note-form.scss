@@ -50,6 +50,8 @@ $actions-btns-radius: 0.5rem;
 
   &__textarea {
     min-height: $textarea-height;
+    resize: none;
+    padding: var(--space-10);
   }
 
   &__input,
@@ -58,6 +60,7 @@ $actions-btns-radius: 0.5rem;
     background: var(--color-secondary);
     outline: none;
     border-radius: var(--space-7);
+    color: var(--color-text);
   }
 
   &__actions {
