@@ -7,3 +7,46 @@
 //     padding: var(--spacing-sm);
 //   }
 // }
+
+@media (max-width: $breakpoint-md) {
+  .sidebar {
+    width: 18rem;
+    min-width: 18rem;
+
+    &__logo {
+      font-size: var(--font-14);
+    }
+  }
+  .notes-panel {
+    width: 20rem;
+    min-width: 20rem;
+  }
+
+  .note-detail {
+    padding: 3rem;
+
+    &__empty {
+      font-size: var(--font-14);
+      white-space: nowrap;
+    }
+  }
+  .content-area {
+    padding: 5rem;
+  }
+
+  .note-form {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .app {
+    flex-direction: column;
+  }
+  .sidebar {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+  }
+}
