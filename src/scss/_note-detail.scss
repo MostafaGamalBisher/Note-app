@@ -13,7 +13,7 @@ $shadow-blur: 2.5rem;
   position: relative;
 
   &__content {
-    display: none;
+    // display: none;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
@@ -33,6 +33,7 @@ $shadow-blur: 2.5rem;
     justify-content: center;
     align-items: center;
     align-self: stretch;
+    display: none;
   }
 
   &__title {

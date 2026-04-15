@@ -1,0 +1,36 @@
+.mobile-header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--space-20) var(--space-16);
+
+  &__burger {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    span {
+      background: var(--color-text);
+      width: 2rem;
+      height: 0.2rem;
+
+      &:last-child {
+        width: 1.3rem;
+      }
+    }
+  }
+
+  &__logo {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-17);
+    font-weight: var(--weight-regular);
+    color: var(--color-primary);
+  }
+
+  &__search-btn {
+    color: var(--color-text);
+  }
+}
