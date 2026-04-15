@@ -50,6 +50,10 @@ button {
   display: none;
 }
 
+.search-overlay {
+  display: flex;
+}
+
 // ── FAB hidden on desktop ─────────────────────────────────────
 .fab {
   display: none;
@@ -63,6 +67,11 @@ button {
   .notes-panel,
   .note-detail {
     display: flex;
+  }
+
+  .notes-panel,
+  .note-detail {
+    display: none;
   }
 
   .content-area {
