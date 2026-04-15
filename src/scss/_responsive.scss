@@ -40,6 +40,12 @@
 }
 
 @media (max-width: 696px) {
+  .app[data-view='notes'] {
+    .note-detail {
+      display: none;
+    }
+  }
+
   .app {
     flex-direction: column;
     align-items: stretch;
@@ -69,6 +75,12 @@
 
     &__actions {
       justify-content: space-between;
+    }
+  }
+
+  .note-detail {
+    &__fab {
+      display: none;
     }
   }
 }

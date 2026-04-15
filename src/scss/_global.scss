@@ -49,6 +49,10 @@ button {
 .menu-overlay,
 .search-overlay {
   display: none;
+
+  &.is-active {
+    display: flex;
+  }
 }
 
 // ── View switching ────────────────────────────────────────────

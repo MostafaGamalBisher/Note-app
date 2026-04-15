@@ -1,6 +1,10 @@
 $menu-width-205: 20.5rem;
 
 .search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-search-overlay);
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
@@ -63,9 +67,17 @@ $menu-width-205: 20.5rem;
     border: none;
     outline: none;
   }
+
+  &__results {
+    background: var(--color-background);
+  }
 }
 
 .menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-overlay);
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
