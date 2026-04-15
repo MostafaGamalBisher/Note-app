@@ -1,3 +1,5 @@
+$menu-width-205: 20.5rem;
+
 .search-overlay {
   flex-direction: column;
   justify-content: flex-start;
@@ -16,15 +18,15 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-5);
 
     span {
       background: var(--color-text);
-      width: 2rem;
-      height: 0.2rem;
+      width: var(--font-20);
+      height: var(--space-2);
 
       &:last-child {
-        width: 1.3rem;
+        width: var(--space-13);
       }
     }
   }
@@ -40,4 +42,37 @@
     font-size: var(--font-16);
     color: var(--color-text);
   }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-12);
+    background: var(--color-background);
+    border-radius: var(--radius-8);
+    color: var(--color-text-secondary);
+
+    svg {
+      width: var(--space-16);
+      height: var(--space-16);
+      flex-shrink: 0;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+  }
+}
+
+.menu-overlay {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-45);
+  padding: var(--space-20) var(--space-16);
+  width: $menu-width-205;
+  height: 100vh;
+  background: var(--color-secondary);
+  flex-shrink: 0;
 }

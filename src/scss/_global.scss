@@ -37,6 +37,7 @@ button {
 .app {
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 // ── Mobile header hidden on desktop ──────────────────────────
@@ -50,15 +51,6 @@ button {
   display: none;
 }
 
-.search-overlay {
-  display: flex;
-}
-
-// ── FAB hidden on desktop ─────────────────────────────────────
-.fab {
-  display: none;
-}
-
 // ── View switching ────────────────────────────────────────────
 // notes view: sidebar + notes-panel + note-detail visible
 // add-note view: sidebar + content-area visible
@@ -69,10 +61,10 @@ button {
     display: flex;
   }
 
-  .notes-panel,
-  .note-detail {
-    display: none;
-  }
+  // .notes-panel,
+  // .note-detail {
+  //   display: none;
+  // }
 
   .content-area {
     display: none;
