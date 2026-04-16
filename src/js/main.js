@@ -1,35 +1,22 @@
 import '../scss/main.scss';
+import { addClass, DOM, removeClass } from './ui';
 
-// const allNavItems = document.querySelectorAll('.nav-menu__item');
-// const app = document.querySelector('.app');
+const bindUIEvent = (triggerElement, targetElement, actionFunc, className) => {
+  triggerElement.addEventListener('click', () => {
+    actionFunc(targetElement, className);
+  });
+};
 
-// allNavItems.forEach((item) => {
-//   item.addEventListener('click', (e) => {
-//     e.preventDefault();
+const initApp = () => {
+  bindUIEvent(DOM.menuOpenBtn, DOM.app, addClass, 'has-menu-open');
+  bindUIEvent(DOM.menuCloseBtn, DOM.app, removeClass, 'has-menu-open');
+  bindUIEvent(DOM.searchOpenBtn, DOM.searchOverLay, addClass, 'is-active');
+  bindUIEvent(DOM.searchCloseBtn, DOM.searchOverLay, removeClass, 'is-active');
 
-//     // Get the text of the clicked link
-//     const clickedLinkText = item
-//       .querySelector('.nav-menu__link')
-//       .textContent.trim();
+  DOM.searchOverLayBurger.addEventListener('click', () => {
+    removeClass(DOM.searchOverLay, 'is-active');
+    addClass(DOM.app, 'has-menu-open');
+  });
+};
 
-//     // Remove active from ALL
-//     allNavItems.forEach((navItem) => {
-//       navItem.classList.remove('nav-menu__item--active');
-
-//       // Add active to matching items in BOTH menus
-//       const navLinkText = navItem
-//         .querySelector('.nav-menu__link')
-//         .textContent.trim();
-//       if (navLinkText === clickedLinkText) {
-//         navItem.classList.add('nav-menu__item--active');
-//       }
-//     });
-
-//     // Update data-view
-//     if (clickedLinkText === 'Add Notes') {
-//       app.setAttribute('data-view', 'add-note');
-//     } else {
-//       app.setAttribute('data-view', 'notes');
-//     }
-//   });
-// });
+initApp();

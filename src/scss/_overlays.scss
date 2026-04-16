@@ -11,11 +11,16 @@ $menu-width-205: 20.5rem;
   padding: var(--space-20) var(--space-16);
   background: var(--color-secondary);
   gap: var(--space-36);
+  width: 100%;
+  transition: var(--transition-base);
+  height: 100vh;
+  overflow-y: auto;
 
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    transition: var(--transition-base);
   }
   &__burger {
     display: flex;
@@ -74,17 +79,18 @@ $menu-width-205: 20.5rem;
 }
 
 .menu-overlay {
-  position: fixed;
+  position: absolute; /* Changed from fixed so it moves with the app */
   top: 0;
-  left: 0;
-  z-index: var(--z-overlay);
+  display: flex;
+  left: -20.5rem; /* Hides it exactly off-screen to the left */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: var(--space-45);
   padding: var(--space-20) var(--space-16);
-  width: $menu-width-205;
+  width: 20.5rem;
   height: 100vh;
   background: var(--color-secondary);
   flex-shrink: 0;
+  /* Notice: No display: none, and no .is-active state needed here anymore! */
 }

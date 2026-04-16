@@ -4,6 +4,7 @@ body {
   font-weight: var(--weight-regular);
   color: var(--color-text);
   background-color: var(--color-background);
+  overflow-x: hidden;
 }
 
 h1,
@@ -37,7 +38,13 @@ button {
 .app {
   display: flex;
   min-height: 100vh;
-  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease; /* Smooth sliding animation */
+
+  // When this class is added, the whole app slides right!
+  &.has-menu-open {
+    transform: translateX(20.5rem);
+  }
 }
 
 // ── Mobile header hidden on desktop ──────────────────────────
@@ -46,7 +53,7 @@ button {
 }
 
 // ── Overlays hidden by default ────────────────────────────────
-.menu-overlay,
+
 .search-overlay {
   display: none;
 
@@ -64,11 +71,6 @@ button {
   .note-detail {
     display: flex;
   }
-
-  // .notes-panel,
-  // .note-detail {
-  //   display: none;
-  // }
 
   .content-area {
     display: none;
