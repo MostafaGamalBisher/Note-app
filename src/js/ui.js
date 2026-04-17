@@ -10,6 +10,11 @@ export const DOM = {
 
   menuCloseBtn: document.querySelector('.menu-overlay__close'),
   searchCloseBtn: document.querySelector('.search-overlay__close'),
+
+  navNotesLinks: document.querySelectorAll('.select-Notes'),
+  navAddNotesLinks: document.querySelectorAll('.select-addNotes'),
+
+  fabBtn: document.querySelector('.note-detail__fab'),
 };
 
 export const setAppView = (element, viewName) => {
@@ -26,4 +31,13 @@ export const removeClass = (element, className) => {
 
 export const toggleClass = (element, className) => {
   element.classList.toggle(className);
+};
+
+export const updateActiveNavLinks = (
+  activeElements,
+  inactiveElements,
+  className
+) => {
+  activeElements.forEach((el) => addClass(el, className));
+  inactiveElements.forEach((el) => removeClass(el, className));
 };
