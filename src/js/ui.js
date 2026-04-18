@@ -22,6 +22,7 @@ export const DOM = {
   bodyInput: document.querySelector('#note-body'),
 
   notesRegularContainer: document.querySelector('#regular-cards'),
+  notesPinnedContainer: document.querySelector('#pinned-cards'),
 };
 
 export const setAppView = (element, viewName) => {
@@ -53,12 +54,12 @@ export const clearContainer = (container) => {
   container.innerHTML = '';
 };
 
-export const listEmptyState = (container) => {
+export const listEmptyState = (container, message) => {
   container.innerHTML = `
+  <li class="empty-state">
      <?xml version="1.0" encoding="UTF-8"?>
           <svg
-            width="50px"
-            height="50px"
+            class="empty-state__icon"
             version="1.1"
             viewBox="0 0 331.33 331.33"
             xml:space="preserve"
@@ -85,5 +86,7 @@ export const listEmptyState = (container) => {
               />
             </g>
           </svg>
+          <p class="empty-state__text">${message}</p>
+          </li>
     `;
 };

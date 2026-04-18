@@ -1,6 +1,6 @@
 import '../scss/main.scss';
-import { renderRegularCards } from './render';
-import { addNote, loadNotes, notes } from './store';
+import { renderAllNotes } from './render';
+import { addNote, deleteNote, loadNotes, notes, toggleNotePin } from './store';
 import {
   addClass,
   DOM,
@@ -66,7 +66,7 @@ const initApp = () => {
   });
 
   loadNotes();
-  renderRegularCards(DOM.notesRegularContainer, notes);
+  renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
 
   DOM.addNoteForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const initApp = () => {
 
     addNote(titleText, nameText, bodyText);
 
-    renderRegularCards(DOM.notesRegularContainer, notes);
+    renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
 
     DOM.addNoteForm.reset();
 
@@ -92,3 +92,34 @@ const initApp = () => {
 };
 
 initApp();
+
+DOM.notesRegularContainer.addEventListener('click', (e) => {
+  const deleteBtn = e.target.closest('.note-card__delete');
+
+  if (deleteBtn) {
+    const userWantsToDelete = window.confirm(
+      'Are you sure you want to delete this note? This cannot be undone.'
+    );
+
+    if (!userWantsToDelete) {
+      return;
+    }
+
+    const targetNote = deleteBtn.closest('.note-card');
+    const noteId = Number(targetNote.dataset.id);
+
+    deleteNote(noteId);
+    renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
+    return;
+  }
+
+  const pinBtn = e.target.closest('.note-card__pin');
+
+  if (pinBtn) {
+    const targetNote = pinBtn.closest('.note-card');
+    const noteId = Number(targetNote.dataset.id);
+
+    toggleNotePin(noteId);
+    renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
+  }
+});

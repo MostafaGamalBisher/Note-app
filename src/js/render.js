@@ -1,4 +1,5 @@
-import { clearContainer, DOM, listEmptyState } from './ui';
+import { notes } from './store';
+import { clearContainer, listEmptyState } from './ui';
 
 const createCardHTML = (note) => `
               <li class="note-card" data-id="${note.id}" >
@@ -8,18 +9,34 @@ const createCardHTML = (note) => `
                 </p>
                 <div class="note-card__bottom">
                   <span class="note-card__date">${note.date}</span>
+                 <div class="note-card__actions">
+                  <button class="note-card__pin ${note.isPinned ? 'note-card__pin--active' : ''}">+</button>
                   <button class="note-card__delete">delete</button>
+                 </div>
                 </div>
               </li>
 `;
 
-export const renderRegularCards = (container, notesArray) => {
-  clearContainer(container);
+export const renderAllNotes = (
+  regularContainer,
+  pinnedContainer,
+  notesArray
+) => {
+  clearContainer(regularContainer);
+  clearContainer(pinnedContainer);
 
-  if (notesArray.length === 0) {
-    listEmptyState(container);
-    return;
+  const pinnedNotes = notesArray.filter((note) => note.isPinned === true);
+  const regularNotes = notesArray;
+
+  if (pinnedNotes.length === 0) {
+    listEmptyState(pinnedContainer, 'Pin a note');
+  } else {
+    pinnedContainer.innerHTML = pinnedNotes.map(createCardHTML).join('');
   }
 
-  container.innerHTML = notesArray.map(createCardHTML).join('');
+  if (regularNotes.length === 0) {
+    listEmptyState(regularContainer, 'Add your first note!');
+  } else {
+    regularContainer.innerHTML = regularNotes.map(createCardHTML).join('');
+  }
 };

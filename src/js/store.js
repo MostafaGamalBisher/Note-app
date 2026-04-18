@@ -25,3 +25,19 @@ export const addNote = (titleText, nameText, bodyText) => {
 
   saveNotes();
 };
+
+export const deleteNote = (noteId) => {
+  notes = notes.filter((note) => note.id !== Number(noteId));
+
+  saveNotes();
+};
+
+export const toggleNotePin = (noteId) => {
+  const noteToPin = notes.find((note) => note.id === noteId);
+
+  if (noteToPin) {
+    noteToPin.isPinned = !noteToPin.isPinned;
+  }
+
+  saveNotes();
+};
