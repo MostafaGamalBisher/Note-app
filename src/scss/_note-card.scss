@@ -61,4 +61,8 @@
       transform: rotate(45deg);
     }
   }
+
+  &__edit {
+    color: var(--color-primary);
+  }
 }

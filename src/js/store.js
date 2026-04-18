@@ -1,5 +1,5 @@
 export let notes = [];
-// export let activeNoteId = null;
+export let activeNoteId = null;
 
 const STORAGE_KEY = 'almdrasa_notes';
 
@@ -40,4 +40,26 @@ export const toggleNotePin = (noteId) => {
   }
 
   saveNotes();
+};
+
+export const setActiveNote = (id) => {
+  activeNoteId = id;
+};
+
+export const clearActiveNote = () => {
+  activeNoteId = null;
+};
+
+// store.js
+
+export const updateNote = (id, titleText, nameText, bodyText) => {
+  const noteToUpdate = notes.find((note) => note.id === id);
+
+  if (noteToUpdate) {
+    noteToUpdate.title = titleText;
+    noteToUpdate.name = nameText;
+    noteToUpdate.body = bodyText;
+
+    saveNotes();
+  }
 };

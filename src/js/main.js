@@ -1,6 +1,16 @@
 import '../scss/main.scss';
 import { renderAllNotes } from './render';
-import { addNote, deleteNote, loadNotes, notes, toggleNotePin } from './store';
+import {
+  addNote,
+  deleteNote,
+  loadNotes,
+  notes,
+  toggleNotePin,
+  activeNoteId,
+  setActiveNote,
+  updateNote,
+  clearActiveNote,
+} from './store';
 import {
   addClass,
   DOM,
@@ -37,6 +47,8 @@ const initApp = () => {
         'nav-menu__item--active'
       );
       removeClass(DOM.app, 'has-menu-open');
+      clearActiveNote();
+      DOM.addNoteForm.reset();
     });
   });
 
@@ -48,12 +60,17 @@ const initApp = () => {
         DOM.navNotesLinks,
         'nav-menu__item--active'
       );
+      clearActiveNote();
+      DOM.addNoteForm.reset();
     });
   }
 
   DOM.navNotesLinks.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
+
+      clearActiveNote();
+      DOM.addNoteForm.reset();
 
       setAppView(DOM.app, 'notes');
       updateActiveNavLinks(
@@ -75,11 +92,16 @@ const initApp = () => {
     const nameText = DOM.nameInput.value;
     const bodyText = DOM.bodyInput.value;
 
-    addNote(titleText, nameText, bodyText);
+    if (activeNoteId) {
+      updateNote(activeNoteId, titleText, nameText, bodyText);
+    } else {
+      addNote(titleText, nameText, bodyText);
+    }
 
-    renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
+    clearActiveNote();
 
     DOM.addNoteForm.reset();
+    renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
 
     setAppView(DOM.app, 'notes');
 
@@ -93,7 +115,7 @@ const initApp = () => {
 
 initApp();
 
-DOM.notesRegularContainer.addEventListener('click', (e) => {
+const handleNoteAction = (e) => {
   const deleteBtn = e.target.closest('.note-card__delete');
 
   if (deleteBtn) {
@@ -122,4 +144,30 @@ DOM.notesRegularContainer.addEventListener('click', (e) => {
     toggleNotePin(noteId);
     renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
   }
-});
+
+  const editBtn = e.target.closest('.note-card__edit');
+
+  if (editBtn) {
+    const targetNote = editBtn.closest('.note-card');
+    const noteId = Number(targetNote.dataset.id);
+
+    const noteToEdit = notes.find((note) => note.id === noteId);
+
+    DOM.titleInput.value = noteToEdit.title;
+    DOM.nameInput.value = noteToEdit.name;
+    DOM.bodyInput.value = noteToEdit.body;
+
+    setActiveNote(noteId);
+
+    setAppView(DOM.app, 'add-note');
+
+    updateActiveNavLinks(
+      DOM.navAddNotesLinks,
+      DOM.navNotesLinks,
+      'nav-menu__item--active'
+    );
+  }
+};
+
+DOM.notesRegularContainer.addEventListener('click', handleNoteAction);
+DOM.notesPinnedContainer.addEventListener('click', handleNoteAction);
