@@ -1,4 +1,6 @@
 import '../scss/main.scss';
+import { renderRegularCards } from './render';
+import { addNote, loadNotes, notes } from './store';
 import {
   addClass,
   DOM,
@@ -41,6 +43,11 @@ const initApp = () => {
   if (DOM.fabBtn) {
     DOM.fabBtn.addEventListener('click', () => {
       setAppView(DOM.app, 'add-note');
+      updateActiveNavLinks(
+        DOM.navAddNotesLinks,
+        DOM.navNotesLinks,
+        'nav-menu__item--active'
+      );
     });
   }
 
@@ -57,5 +64,31 @@ const initApp = () => {
       removeClass(DOM.app, 'has-menu-open');
     });
   });
+
+  loadNotes();
+  renderRegularCards(DOM.notesRegularContainer, notes);
+
+  DOM.addNoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const titleText = DOM.titleInput.value;
+    const nameText = DOM.nameInput.value;
+    const bodyText = DOM.bodyInput.value;
+
+    addNote(titleText, nameText, bodyText);
+
+    renderRegularCards(DOM.notesRegularContainer, notes);
+
+    DOM.addNoteForm.reset();
+
+    setAppView(DOM.app, 'notes');
+
+    updateActiveNavLinks(
+      DOM.navNotesLinks,
+      DOM.navAddNotesLinks,
+      'nav-menu__item--active'
+    );
+  });
 };
+
 initApp();
