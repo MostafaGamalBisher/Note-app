@@ -23,6 +23,13 @@ export const DOM = {
 
   notesRegularContainer: document.querySelector('#regular-cards'),
   notesPinnedContainer: document.querySelector('#pinned-cards'),
+
+  detailEmpty: document.querySelector('#note-detail-empty'),
+  detailContent: document.querySelector('#note-detail-content'),
+  detailTitle: document.querySelector('#note-detail-title'),
+  detailDate: document.querySelector('#note-detail-date'),
+  detailAuthor: document.querySelector('#note-detail-author'),
+  detailBody: document.querySelector('#note-detail-body'),
 };
 
 export const setAppView = (element, viewName) => {

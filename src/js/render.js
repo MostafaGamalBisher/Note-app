@@ -1,8 +1,8 @@
-import { notes } from './store';
-import { clearContainer, listEmptyState } from './ui';
+import { notes, viewNoteId } from './store';
+import { addClass, clearContainer, DOM, listEmptyState } from './ui';
 
 const createCardHTML = (note) => `
-              <li class="note-card" data-id="${note.id}" >
+              <li class="note-card ${note.id === viewNoteId ? 'note-card--selected' : ''}" data-id="${note.id}" >
                 <h3 class="note-card__title">${note.title}</h3>
                 <p class="note-card__excerpt">
                  ${note.body}
@@ -44,4 +44,16 @@ export const renderAllNotes = (
   } else {
     regularContainer.innerHTML = regularNotes.map(createCardHTML).join('');
   }
+};
+
+export const renderNoteDetail = (note) => {
+  DOM.detailTitle.textContent = note.title;
+  DOM.detailDate.textContent = note.date;
+  DOM.detailAuthor.textContent = note.name;
+  DOM.detailBody.textContent = note.body;
+
+  DOM.detailEmpty.style.display = 'none';
+
+  addClass(DOM.detailContent, 'is-visible');
+  // addClass(DOM.)
 };

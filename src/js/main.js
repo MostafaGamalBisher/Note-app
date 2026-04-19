@@ -1,5 +1,5 @@
 import '../scss/main.scss';
-import { renderAllNotes } from './render';
+import { renderAllNotes, renderNoteDetail } from './render';
 import {
   addNote,
   deleteNote,
@@ -10,6 +10,7 @@ import {
   setActiveNote,
   updateNote,
   clearActiveNote,
+  serViewedNote,
 } from './store';
 import {
   addClass,
@@ -166,6 +167,29 @@ const handleNoteAction = (e) => {
       DOM.navNotesLinks,
       'nav-menu__item--active'
     );
+  }
+
+  const noteCard = e.target.closest('.note-card');
+  const isButton = e.target.closest('button');
+
+  if (noteCard && !isButton) {
+    const noteId = Number(noteCard.dataset.id);
+
+    const noteToView = notes.find((note) => note.id === noteId);
+
+    renderNoteDetail(noteToView);
+
+    serViewedNote(noteId);
+
+    document.querySelectorAll('.note-card').forEach((card) => {
+      removeClass(card, 'note-card--selected');
+    });
+
+    document
+      .querySelectorAll(`.note-card[data-id="${noteId}"]`)
+      .forEach((card) => {
+        addClass(card, 'note-card--selected');
+      });
   }
 };
 

@@ -1,5 +1,6 @@
 export let notes = [];
 export let activeNoteId = null;
+export let viewNoteId = null;
 
 const STORAGE_KEY = 'almdrasa_notes';
 
@@ -21,7 +22,7 @@ export const addNote = (titleText, nameText, bodyText) => {
     isPinned: false,
   };
 
-  notes.push(newNote);
+  notes.unshift(newNote);
 
   saveNotes();
 };
@@ -62,4 +63,8 @@ export const updateNote = (id, titleText, nameText, bodyText) => {
 
     saveNotes();
   }
+};
+
+export const serViewedNote = (id) => {
+  viewNoteId = id;
 };
