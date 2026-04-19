@@ -35,6 +35,21 @@ The JavaScript logic is decoupled to ensure a clean separation of concerns, mirr
 To run this project locally on your machine:
 
 1. **Clone the repository:**
-   ```bash
+
    git clone [https://github.com/MostafaGamalBisher/Note-app.git](https://github.com/MostafaGamalBisher/Note-app.git)
-   ```
+
+2. **Navigate to the project directory:**
+
+   cd Note-app
+
+3. **Install dependencies:**
+
+   npm install
+
+👨‍💻 **Author**
+
+## Mostafa Gamal Bisher
+
+_Front-End Software Engineer_
+
+_Developed as part of the Front-End Diploma track at the Al-Mdrasa platform._
