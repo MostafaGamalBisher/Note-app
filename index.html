@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Note-app</title>
+    <script type="module" crossorigin src="/Note-app/assets/index-BU_wvJcp.js"></script>
+    <link rel="stylesheet" crossorigin href="/Note-app/assets/index-fLIkmvge.css">
+  </head>
+  <body>
+    <div class="app" data-view="notes">
+      <header class="mobile-header">
+        <button
+          class="mobile-header__burger"
+          type="button"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="mobile-header__logo">Almdrasa-Notes</div>
+        <button
+          class="mobile-header__search-btn"
+          type="button"
+          aria-label="Open search"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_6502_65)">
+              <path
+                d="M8.15625 14.0625C11.4182 14.0625 14.0625 11.4182 14.0625 8.15625C14.0625 4.89432 11.4182 2.25 8.15625 2.25C4.89432 2.25 2.25 4.89432 2.25 8.15625C2.25 11.4182 4.89432 14.0625 8.15625 14.0625Z"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.332 12.3328L15.7493 15.75"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_6502_65">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </header>
+
+      <aside class="sidebar">
+        <div class="sidebar__logo">Almdrasa-Notes</div>
+
+        <div class="sidebar__search">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_6502_65)">
+              <path
+                d="M8.15625 14.0625C11.4182 14.0625 14.0625 11.4182 14.0625 8.15625C14.0625 4.89432 11.4182 2.25 8.15625 2.25C4.89432 2.25 2.25 4.89432 2.25 8.15625C2.25 11.4182 4.89432 14.0625 8.15625 14.0625Z"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.332 12.3328L15.7493 15.75"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_6502_65">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <input
+            class="sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <nav class="nav-menu">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__item select-Notes nav-menu__item--active">
+              <a href="#" class="nav-menu__link">Notes</a>
+            </li>
+            <li class="nav-menu__item select-addNotes">
+              <a href="#" class="nav-menu__link">Add Notes</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="notes-panel">
+        <button
+          class="notes-panel__collapse"
+          type="button"
+          aria-label="Collapse panel"
+        >
+          <span>‹</span>
+        </button>
+        <div class="notes-panel__list">
+          <div class="notes-panel__section" id="pinned-section">
+            <p class="notes-panel__label notes-panel__label--pinned">Pinned</p>
+            <ul class="notes-panel__cards" id="pinned-cards">
+              <!-- <li class="note-card">
+                <h3 class="note-card__title">note title</h3>
+                <p class="note-card__excerpt">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+                  ratione explicabo temporibus rem cupiditate dolor harum amet
+                  molestias quos? Tempora voluptatibus deserunt ratione porro
+                  vero in quos quidem iusto a!
+                </p>
+                <div class="note-card__bottom">
+                  <span class="note-card__date">Feb 8, 2021</span>
+                  <button class="note-card__delete">delete</button>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+
+          <div class="notes-panel__section" id="notes-section">
+            <p class="notes-panel__label">Notes</p>
+            <ul class="notes-panel__cards" id="regular-cards">
+              <!-- <li class="note-card note-card--selected">
+                <h3 class="note-card__title">note title</h3>
+                <p class="note-card__excerpt">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+                  ratione explicabo temporibus rem cupiditate dolor harum amet
+                  molestias quos? Tempora voluptatibus deserunt ratione porro
+                  vero in quos quidem iusto a!
+                </p>
+                <div class="note-card__bottom">
+                  <span class="note-card__date">Feb 8, 2021</span>
+                  <button class="note-card__delete">delete</button>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <main class="note-detail" id="note-detail">
+        <button
+          class="note-detail__back-btn"
+          id="note-detail-back"
+          type="button"
+          aria-label="Back to notes"
+        >
+          ← Back to Notes
+        </button>
+        <div class="note-detail__empty" id="note-detail-empty">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg
+            width="50px"
+            height="50px"
+            version="1.1"
+            viewBox="0 0 331.33 331.33"
+            xml:space="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="currentcolor">
+              <path
+                d="m30.421 317.46 4.422-17.661-12.194-4.814-8.376 13.804s4.618 12.526-0.511 22.539c4e-3 1e-3 6.422-10.931 16.659-13.868zm-8.192-8.104c1.501-0.615 3.231 0.087 3.851 1.561 0.625 1.474-0.087 3.171-1.588 3.786s-3.231-0.087-3.851-1.561c-0.631-1.48 0.082-3.177 1.588-3.786z"
+              />
+              <path
+                d="m158.35 112.62c-35.115 28.8-81.086 88.124-120.07 157.42l-0.022-0.027-6.815 12.026 7.267 2.796 3.84-10.117c20.799-37.491 77.224-135.4 180.4-200.45 0 0 38.411-22.877 76.256-54.516-9.214 7.702-27.391 17.356-37.247 23.584-25.868 16.344-57.79 31.704-103.6 69.282z"
+              />
+              <path
+                d="m33.2 215.36c-7.985 28.223-7.528 49.718-4.438 55.625h4.83c13.337-27.625 77.572-127.69 117.55-159.02 41.424-32.455 73.378-51.339 100.25-65.111 9.437-4.835 19.118-11.384 27.848-17.949 10.601-8.36 21.348-17.302 30.758-26.053l-27.277 17.889 12.162-18.602-23.22 23.611 15.11-25.759c-35.746 3.225-68.918 21.109-68.918 21.109-13.271 15.741-23.959 40.782-23.959 40.782-0.37-12.521 8.11-31.481 8.11-31.481-6.266 2.861-30.073 16.459-30.073 16.459-11.645 9.66-15.262 35.06-15.262 35.06-2.214-10.019 5.526-29.333 5.526-29.333-33.543 19.32-57.502 52.231-57.502 52.231-16.584 32.553-2.948 57.953-8.11 51.872s-4.052-28.261-4.052-28.261c-35.017 33.63-38.699 49.724-38.699 49.724-5.896 14.31-11.058 52.59-11.058 52.59-3.318-3.579 0-23.611 0-23.611-8.479 17.889-4.422 34.701-4.422 34.701-4.052-1.435-5.161-26.477-5.161-26.477z"
+              />
+              <path
+                d="m310.01 14.191s-13.483 13.065-30.758 26.053c-27.081 21.359-53.156 38.819-53.156 38.819-102.15 60.362-159.07 158.87-177.88 192.64h10.002c3.535-2.834 8.844-4.971 31.014-11.389 28.011-8.11 44.72-25.041 44.72-25.041s-25.553 14.31-37.595 12.88-28.223 3.1-28.223 3.1-6.179-2.861 24.291-7.392 80.596-38.634 80.596-38.634-19.167 7.87-28.011 7.152-30.714 0-30.714 0c14.495-3.34 28.011-1.43 50.126-9.779s20.886-7.631 20.886-7.631c25.063-8.349 35.474-34.342 35.474-34.342-4.335 1.67-37.443 5.722-51.176 1.67-13.734-4.052-37.132 0-37.132 0 22.115-7.392 27.032-4.052 32.433-4.291 5.406-0.239 22.855 1.191 57.502-10.731s44.475-26.711 44.475-26.711l-23.366 3.122c15.257-2.567 32.455-12.662 32.455-12.662-10.568 2.861-27.032 4.291-27.032 4.291 19.412-4.291 30.225-10.253 30.225-10.253 18.183-13.832 22.36-34.342 22.36-34.342-25.803 8.822-46.194 4.77-46.194 4.77 35.387-2.382 45.215-11.449 50.126-13.592 4.917-2.148 6.94-11.03 6.94-11.03-17.878 6.44-38.15 7.511-38.15 7.511 21.93-3.399 40.722-14.49 40.722-14.49v-11.102c-8.479 4.83-23.399 8.588-23.399 8.588l23.219-15.023c1.305-7.516-4.776-12.166-4.776-12.166z"
+              />
+              <polygon
+                points="23.551 290.57 37.361 296.1 39.933 289.99 26.124 284.46"
+              />
+              <path
+                d="m177.04 285.46c-45.628 21.936-89.462 36.888-147.76 38.846-5.439 0.185-5.466 5.624 0 5.439 52.15-1.751 95.543-12.961 137.39-32.575 46.618-21.854 89.435-40.167 147.83-46.39 5.385-0.577 3.095-5.814-2.252-5.243-51.714 5.516-93.731 19.984-135.21 39.923z"
+              />
+            </g>
+          </svg>
+          <p>select a note to read</p>
+        </div>
+
+        <div class="note-detail__content" id="note-detail-content">
+          <h1 class="note-detail__title" id="note-detail-title">
+            Business Partners Work at Modern Office
+          </h1>
+
+          <p class="note-detail__meta" id="note-detail-meta">
+            <span class="note-detail__date" id="note-detail-date"
+              >Feb 8, 2021</span
+            >
+            <span class="note-detail__separator"> / By </span>
+            <span class="note-detail__author" id="note-detail-author">
+              Yousef</span
+            >
+          </p>
+
+          <div class="note-detail__body" id="note-detail-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            similique eveniet fuga officia labore voluptate cumque provident eos
+            perferendis quasi enim quo tempora fugit autem nostrum nihil
+            laudantium, sapiente nemo? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatem mollitia debitis corporis hic
+            cupiditate vel, laborum laboriosam rerum eligendi repellendus, aut
+            ab doloremque nobis tempore reprehenderit! Odio error laudantium
+            dicta? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Tempore delectus rerum veritatis ex expedita. Est magnam commodi
+            dignissimos iste atque. Recusandae odio quas eum ipsam eaque nam
+            sapiente. Ab, voluptates. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Ab suscipit sed modi, vel vero ipsa reprehenderit
+            aperiam odio, sapiente animi quos ad distinctio. Esse et nobis quis
+            ad delectus est. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Incidunt, numquam enim? Cupiditate architecto molestias sunt,
+            eius sapiente impedit optio necessitatibus, voluptates alias ipsum,
+            laudantium nobis deleniti officiis aut. Maiores, soluta.
+          </div>
+        </div>
+
+        <button class="note-detail__fab" type="button" aria-label="Add note">
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 35 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M33.3342 16H18.6675V1.33333C18.6675 0.979711 18.5271 0.640573 18.277 0.390525C18.027 0.140476 17.6878 0 17.3342 0C16.9806 0 16.6414 0.140476 16.3914 0.390525C16.1413 0.640573 16.0009 0.979711 16.0009 1.33333V16H1.33421C0.980585 16 0.641447 16.1405 0.391398 16.3905C0.14135 16.6406 0.000873709 16.9797 0.000873709 17.3333C-0.00570579 17.5066 0.0249361 17.6793 0.090734 17.8397C0.156532 18.0002 0.255957 18.1447 0.382309 18.2634C0.508661 18.3822 0.659005 18.4725 0.823208 18.5283C0.987411 18.584 1.16166 18.6039 1.33421 18.5867H16.0009V33.3333C16.0009 33.687 16.1413 34.0261 16.3914 34.2761C16.6414 34.5262 16.9806 34.6667 17.3342 34.6667C17.6878 34.6667 18.027 34.5262 18.277 34.2761C18.5271 34.0261 18.6675 33.687 18.6675 33.3333V18.6667H33.3342C33.6878 18.6667 34.027 18.5262 34.277 18.2761C34.5271 18.0261 34.6675 17.687 34.6675 17.3333C34.6675 16.9797 34.5271 16.6406 34.277 16.3905C34.027 16.1405 33.6878 16 33.3342 16Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </main>
+
+      <div class="content-area">
+        <h1 class="content-area__title">Add Note</h1>
+
+        <form class="note-form" id="note-form">
+          <div class="note-form__group">
+            <label class="note-form__label" for="note-title">Title*</label>
+            <input
+              class="note-form__input"
+              type="text"
+              id="note-title"
+              required
+            />
+          </div>
+
+          <div class="note-form__group">
+            <label class="note-form__label" for="note-author">Author*</label>
+            <input
+              class="note-form__input"
+              type="text"
+              id="note-author"
+              required
+            />
+          </div>
+
+          <div class="note-form__group">
+            <label class="note-form__label">Your Note*</label>
+            <div id="editor-container" class="note-form__editor"></div>
+          </div>
+
+          <div class="note-form__actions">
+            <button
+              type="submit"
+              class="note-form__btn note-form__btn--primary"
+            >
+              Add Note
+            </button>
+            <button
+              type="submit"
+              class="note-form__btn note-form__btn--secondary"
+              id="btn-add-pinned"
+            >
+              Add pinned note
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="menu-overlay" id="menu-overlay">
+        <button
+          class="menu-overlay__close"
+          type="button"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        <nav class="nav-menu nav-menu--overlay">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__item select-Notes nav-menu__item--active">
+              <a href="#" class="nav-menu__link">Notes</a>
+            </li>
+            <li class="nav-menu__item select-addNotes">
+              <a href="#" class="nav-menu__link">Add Notes</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay__header">
+          <button
+            class="search-overlay__burger"
+            type="button"
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="search-overlay__logo">Almdrasa-Notes</div>
+
+          <button
+            class="search-overlay__close"
+            type="button"
+            aria-label="Close search"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="search-overlay__search">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_6502_65)">
+              <path
+                d="M8.15625 14.0625C11.4182 14.0625 14.0625 11.4182 14.0625 8.15625C14.0625 4.89432 11.4182 2.25 8.15625 2.25C4.89432 2.25 2.25 4.89432 2.25 8.15625C2.25 11.4182 4.89432 14.0625 8.15625 14.0625Z"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.332 12.3328L15.7493 15.75"
+                stroke="currentColor"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_6502_65">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <input
+            class="search-overlay__input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <ul class="search-overlay__results" id="search-results">
+          <!-- JS renders matching note cards here -->
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
