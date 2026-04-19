@@ -81,10 +81,10 @@ $close-btn-width: 1.8rem;
 }
 
 .menu-overlay {
-  position: absolute; /* Changed from fixed so it moves with the app */
+  position: absolute;
   top: 0;
   display: flex;
-  left: -20.5rem; /* Hides it exactly off-screen to the left */
+  left: -20.5rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -94,5 +94,4 @@ $close-btn-width: 1.8rem;
   height: 100vh;
   background: var(--color-secondary);
   flex-shrink: 0;
-  /* Notice: No display: none, and no .is-active state needed here anymore! */
 }

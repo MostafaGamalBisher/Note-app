@@ -39,9 +39,8 @@ button {
   display: flex;
   min-height: 100vh;
   position: relative;
-  transition: transform 0.3s ease; /* Smooth sliding animation */
+  transition: transform 0.3s ease;
 
-  // When this class is added, the whole app slides right!
   &.has-menu-open {
     transform: translateX(20.5rem);
   }
