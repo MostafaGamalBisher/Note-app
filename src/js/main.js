@@ -15,6 +15,7 @@ import {
   updateNote,
   clearActiveNote,
   setViewedNote,
+  viewNoteId,
 } from './store';
 import {
   addClass,
@@ -25,6 +26,22 @@ import {
   toggleClass,
   updateActiveNavLinks,
 } from './ui';
+
+import Quill from 'quill';
+import 'quill/dist/quill.bubble.css';
+
+const quill = new Quill('#editor-container', {
+  theme: 'bubble',
+  placeholder: '',
+  modules: {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ color: [] }, { background: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['clean'],
+    ],
+  },
+});
 
 const bindUIEvent = (triggerElement, targetElement, actionFunc, className) => {
   triggerElement.addEventListener('click', () => {
@@ -76,6 +93,7 @@ const initApp = () => {
       );
       clearActiveNote();
       DOM.addNoteForm.reset();
+      quill.setContents([]);
     });
   }
 
@@ -110,9 +128,11 @@ const initApp = () => {
 
     const titleText = DOM.titleInput.value.trim();
     const nameText = DOM.nameInput.value.trim();
-    const bodyText = DOM.bodyInput.value.trim();
+    const bodyText = quill.root.innerHTML;
 
-    if (!titleText || !nameText || !bodyText) {
+    const isBodyEmpty = quill.getText().trim().length === 0;
+
+    if (!titleText || !nameText || isBodyEmpty) {
       alert('Please fill out all fields with valid text.');
       return;
     }
@@ -134,6 +154,7 @@ const initApp = () => {
     clearActiveNote();
 
     DOM.addNoteForm.reset();
+    quill.setContents([]);
     renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
 
     setAppView(DOM.app, 'notes');
@@ -165,6 +186,12 @@ const handleNoteAction = (e) => {
 
     deleteNote(noteId);
     renderAllNotes(DOM.notesRegularContainer, DOM.notesPinnedContainer, notes);
+
+    if (noteId === viewNoteId) {
+      removeClass(DOM.detailContent, 'is-visible');
+      DOM.detailEmpty.style.display = 'flex';
+    }
+
     return;
   }
 
@@ -188,7 +215,7 @@ const handleNoteAction = (e) => {
 
     DOM.titleInput.value = noteToEdit.title;
     DOM.nameInput.value = noteToEdit.name;
-    DOM.bodyInput.value = noteToEdit.body;
+    quill.root.innerHTML = noteToEdit.body;
 
     setActiveNote(noteId);
 

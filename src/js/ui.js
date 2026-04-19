@@ -19,7 +19,7 @@ export const DOM = {
   addNoteForm: document.querySelector('#note-form'),
   titleInput: document.querySelector('#note-title'),
   nameInput: document.querySelector('#note-author'),
-  bodyInput: document.querySelector('#note-body'),
+  editorContainer: document.querySelector('#editor-container'),
 
   notesRegularContainer: document.querySelector('#regular-cards'),
   notesPinnedContainer: document.querySelector('#pinned-cards'),

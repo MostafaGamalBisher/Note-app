@@ -48,14 +48,33 @@ $actions-btns-radius: 0.5rem;
     padding: var(--space-12) var(--space-16);
   }
 
-  &__textarea {
-    min-height: $textarea-height;
-    resize: none;
-    padding: var(--space-10);
+  &__editor {
+    background: var(--color-secondary);
+    border-radius: var(--radius-8);
+    border: none !important;
+    color: var(--color-text);
   }
 
-  &__input,
-  &__textarea {
+  &.ql-container {
+    font-family: var(--font-family-base);
+    font-size: var(--font-16);
+    // height: $textarea-height;
+  }
+
+  .ql-editor {
+    padding: var(--space-12) var(--space-16);
+    font-family: var(--font-family-base);
+    height: $textarea-height;
+    font-size: var(--font-16);
+  }
+
+  .ql-editor.ql-blank::before {
+    font-style: normal;
+    color: var(--color-text-secondary);
+    left: var(--space-16);
+  }
+
+  &__input {
     border: none;
     background: var(--color-secondary);
     outline: none;

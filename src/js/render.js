@@ -1,11 +1,26 @@
 import { viewNoteId } from './store';
 import { addClass, clearContainer, DOM, listEmptyState } from './ui';
+import DOMPurify from 'dompurify';
+
+// const escapeHTML = (str) => {
+//   return str.replace(
+//     /[&<>'"]/g,
+//     (character) =>
+//       ({
+//         '&': '&amp;',
+//         '<': '&lt;',
+//         '>': '&gt;',
+//         "'": '&#39;',
+//         '"': '&quot;',
+//       })[character] || character
+//   );
+// };
 
 const createCardHTML = (note) => `
               <li class="note-card ${note.id === viewNoteId ? 'note-card--selected' : ''}" data-id="${note.id}" >
-                <h3 class="note-card__title">${note.title}</h3>
+                <h3 class="note-card__title">${DOMPurify.sanitize(note.title, { ALLOWED_TAGS: [] })}</h3>
                 <p class="note-card__excerpt">
-                 ${note.body}
+                ${DOMPurify.sanitize(note.body)}
                 </p>
                 <div class="note-card__bottom">
                   <span class="note-card__date">${note.date}</span>
@@ -50,15 +65,12 @@ export const renderNoteDetail = (note) => {
   DOM.detailTitle.textContent = note.title;
   DOM.detailDate.textContent = note.date;
   DOM.detailAuthor.textContent = note.name;
-  DOM.detailBody.textContent = note.body;
+  DOM.detailBody.innerHTML = DOMPurify.sanitize(note.body);
 
   DOM.detailEmpty.style.display = 'none';
 
   addClass(DOM.detailContent, 'is-visible');
-  // addClass(DOM.)
 };
-
-// render.js
 
 export const renderSearchResults = (container, resultsArray) => {
   clearContainer(container);
