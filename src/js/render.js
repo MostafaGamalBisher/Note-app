@@ -1,4 +1,4 @@
-import { notes, viewNoteId } from './store';
+import { viewNoteId } from './store';
 import { addClass, clearContainer, DOM, listEmptyState } from './ui';
 
 const createCardHTML = (note) => `
