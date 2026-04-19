@@ -12,14 +12,19 @@ export const saveNotes = () => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
 };
 
-export const addNote = (titleText, nameText, bodyText) => {
+export const addNote = (
+  titleText,
+  nameText,
+  bodyText,
+  isPinnedFlag = false
+) => {
   const newNote = {
     id: Date.now(),
     title: titleText,
     date: new Date().toISOString().split('T')[0],
     name: nameText,
     body: bodyText,
-    isPinned: false,
+    isPinned: isPinnedFlag,
   };
 
   notes.unshift(newNote);
@@ -53,7 +58,13 @@ export const clearActiveNote = () => {
 
 // store.js
 
-export const updateNote = (id, titleText, nameText, bodyText) => {
+export const updateNote = (
+  id,
+  titleText,
+  nameText,
+  bodyText,
+  forcePin = false
+) => {
   const noteToUpdate = notes.find((note) => note.id === id);
 
   if (noteToUpdate) {
@@ -61,10 +72,13 @@ export const updateNote = (id, titleText, nameText, bodyText) => {
     noteToUpdate.name = nameText;
     noteToUpdate.body = bodyText;
 
+    if (forcePin) {
+      noteToUpdate.isPinned = true;
+    }
     saveNotes();
   }
 };
 
-export const serViewedNote = (id) => {
+export const setViewedNote = (id) => {
   viewNoteId = id;
 };

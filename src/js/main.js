@@ -1,5 +1,9 @@
 import '../scss/main.scss';
-import { renderAllNotes, renderNoteDetail } from './render';
+import {
+  renderAllNotes,
+  renderNoteDetail,
+  renderSearchResults,
+} from './render';
 import {
   addNote,
   deleteNote,
@@ -10,13 +14,15 @@ import {
   setActiveNote,
   updateNote,
   clearActiveNote,
-  serViewedNote,
+  setViewedNote,
 } from './store';
 import {
   addClass,
+  clearContainer,
   DOM,
   removeClass,
   setAppView,
+  toggleClass,
   updateActiveNavLinks,
 } from './ui';
 
@@ -31,6 +37,13 @@ const initApp = () => {
   bindUIEvent(DOM.menuCloseBtn, DOM.app, removeClass, 'has-menu-open');
   bindUIEvent(DOM.searchOpenBtn, DOM.searchOverLay, addClass, 'is-active');
   bindUIEvent(DOM.searchCloseBtn, DOM.searchOverLay, removeClass, 'is-active');
+
+  bindUIEvent(
+    DOM.collapseBtn,
+    DOM.notesPanel,
+    toggleClass,
+    'notes-panel--collapsed'
+  );
 
   DOM.searchOverLayBurger.addEventListener('click', () => {
     removeClass(DOM.searchOverLay, 'is-active');
@@ -66,6 +79,12 @@ const initApp = () => {
     });
   }
 
+  if (DOM.detailBackBtn) {
+    DOM.detailBackBtn.addEventListener('click', () => {
+      setAppView(DOM.app, 'notes');
+    });
+  }
+
   DOM.navNotesLinks.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
@@ -89,14 +108,27 @@ const initApp = () => {
   DOM.addNoteForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const titleText = DOM.titleInput.value;
-    const nameText = DOM.nameInput.value;
-    const bodyText = DOM.bodyInput.value;
+    const titleText = DOM.titleInput.value.trim();
+    const nameText = DOM.nameInput.value.trim();
+    const bodyText = DOM.bodyInput.value.trim();
+
+    if (!titleText || !nameText || !bodyText) {
+      alert('Please fill out all fields with valid text.');
+      return;
+    }
+
+    const userWantsItPinned = e.submitter.id === 'btn-add-pinned';
 
     if (activeNoteId) {
-      updateNote(activeNoteId, titleText, nameText, bodyText);
+      updateNote(
+        activeNoteId,
+        titleText,
+        nameText,
+        bodyText,
+        userWantsItPinned
+      );
     } else {
-      addNote(titleText, nameText, bodyText);
+      addNote(titleText, nameText, bodyText, userWantsItPinned);
     }
 
     clearActiveNote();
@@ -179,7 +211,9 @@ const handleNoteAction = (e) => {
 
     renderNoteDetail(noteToView);
 
-    serViewedNote(noteId);
+    removeClass(DOM.searchOverLay, 'is-active');
+
+    setViewedNote(noteId);
 
     document.querySelectorAll('.note-card').forEach((card) => {
       removeClass(card, 'note-card--selected');
@@ -190,8 +224,39 @@ const handleNoteAction = (e) => {
       .forEach((card) => {
         addClass(card, 'note-card--selected');
       });
+
+    setAppView(DOM.app, 'view-note');
   }
 };
 
 DOM.notesRegularContainer.addEventListener('click', handleNoteAction);
 DOM.notesPinnedContainer.addEventListener('click', handleNoteAction);
+DOM.searchResultsContainer.addEventListener('click', handleNoteAction);
+
+const handleSearch = (e) => {
+  const query = e.target.value.toLowerCase().trim();
+
+  DOM.sidebarSearchInput.value = query;
+  DOM.overlaySearchInput.value = query;
+
+  const filteredNotes = notes.filter(
+    (note) =>
+      note.title.toLowerCase().includes(query) ||
+      note.body.toLowerCase().includes(query)
+  );
+
+  renderAllNotes(
+    DOM.notesRegularContainer,
+    DOM.notesPinnedContainer,
+    filteredNotes
+  );
+
+  if (!query) {
+    clearContainer(DOM.searchResultsContainer);
+  } else {
+    renderSearchResults(DOM.searchResultsContainer, filteredNotes);
+  }
+};
+
+DOM.sidebarSearchInput.addEventListener('input', handleSearch);
+DOM.overlaySearchInput.addEventListener('input', handleSearch);

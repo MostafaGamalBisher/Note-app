@@ -20,6 +20,10 @@
   .notes-panel {
     width: 20rem;
     min-width: 20rem;
+
+    &--collapsed {
+      margin-left: -20rem;
+    }
   }
 
   .note-detail {
@@ -43,6 +47,19 @@
   .app[data-view='notes'] {
     .note-detail {
       display: none;
+    }
+    .notes-panel {
+      display: flex;
+    }
+  }
+
+  .app[data-view='view-note'] {
+    .notes-panel {
+      display: none;
+    }
+    .note-detail {
+      display: flex;
+      width: 100%;
     }
   }
 
@@ -79,6 +96,9 @@
   }
 
   .note-detail {
+    &__back-btn {
+      display: flex;
+    }
     &__fab {
       display: none;
     }

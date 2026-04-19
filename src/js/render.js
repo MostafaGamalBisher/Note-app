@@ -57,3 +57,17 @@ export const renderNoteDetail = (note) => {
   addClass(DOM.detailContent, 'is-visible');
   // addClass(DOM.)
 };
+
+// render.js
+
+export const renderSearchResults = (container, resultsArray) => {
+  clearContainer(container);
+
+  if (resultsArray.length === 0) {
+    container.innerHTML =
+      '<li class="empty-state"><p class="empty-state__text">No matching notes found.</p></li>';
+    return;
+  }
+
+  container.innerHTML = resultsArray.map(createCardHTML).join('');
+};

@@ -13,6 +13,7 @@
   background: var(--color-secondary);
   position: sticky;
   top: 0;
+  z-index: 20;
 
   // ── Logo ───────────────────────────────────────────────────
   &__logo {

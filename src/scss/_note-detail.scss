@@ -69,4 +69,18 @@ $shadow-blur: 2.5rem;
     bottom: var(--space-36);
     right: var(--space-36);
   }
+
+  &__back-btn {
+    display: none;
+    align-items: center;
+    color: var(--color-primary);
+    font-size: var(--font-14);
+    font-weight: var(--weight-medium);
+    margin-bottom: var(--space-20);
+    padding: var(--space-8) 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

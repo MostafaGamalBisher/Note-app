@@ -30,6 +30,15 @@ export const DOM = {
   detailDate: document.querySelector('#note-detail-date'),
   detailAuthor: document.querySelector('#note-detail-author'),
   detailBody: document.querySelector('#note-detail-body'),
+
+  detailBackBtn: document.querySelector('#note-detail-back'),
+
+  sidebarSearchInput: document.querySelector('.sidebar__search-input'),
+  overlaySearchInput: document.querySelector('.search-overlay__input'),
+  searchResultsContainer: document.querySelector('#search-results'),
+
+  notesPanel: document.querySelector('.notes-panel'),
+  collapseBtn: document.querySelector('.notes-panel__collapse'),
 };
 
 export const setAppView = (element, viewName) => {

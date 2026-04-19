@@ -8,6 +8,8 @@
   border-right: 0.1rem solid var(--color-border);
   position: sticky;
   top: 0;
+  z-index: var(--z-notes-panel);
+  transition: margin-left 0.3s ease;
 
   &__list {
     display: flex;
@@ -74,6 +76,20 @@
     background: var(--color-background);
     color: var(--color-text-secondary);
     z-index: 100;
+
+    span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &--collapsed {
+    margin-left: -32.2rem;
+    border-right: none;
+
+    .notes-panel__collapse {
+      right: -2.8rem;
+    }
   }
 
   &--collapsed &__collapse span {
